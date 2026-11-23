@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rouvan BDSM-joulukalenteri 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #050305; color: #e8d5c4; font-family: 'Cormorant Garamond', serif; min-height: 100vh; }
+.hero { position: relative; min-height: 60vh; background: #0a0608 center/cover no-repeat; display: flex; align-items: flex-end; justify-content: center; }
+.hero-overlay { background: linear-gradient(to top, rgba(5,3,5,0.95), rgba(5,3,5,0.3)); width: 100%; padding: 50px 20px 30px; text-align: center; }
+h1 { font-family: 'Playfair Display', serif; font-size: 2.8em; color: #f0d878; text-shadow: 0 0 20px rgba(0,0,0,0.8); }
+.subtitle { font-style: italic; font-size: 1.3em; color: #d4af37; margin: 8px 0 16px; }
+.dedication { max-width: 680px; margin: 0 auto; font-size: 1.1em; line-height: 1.6; background: rgba(10,5,8,0.75); padding: 18px; border-radius: 10px; border: 1px solid #5a2030; }
+.calendar { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 14px; max-width: 980px; margin: 30px auto; padding: 20px; }
+.door { background: linear-gradient(160deg, #1c1016, #0a0608); border: 2px solid #7a3040; border-radius: 12px; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-size: 1.9em; font-weight: bold; color: #f0d878; cursor: pointer; transition: all 0.3s; }
+.door:hover { transform: translateY(-5px) scale(1.04); border-color: #f0d878; box-shadow: 0 8px 25px rgba(240,216,120,0.2); }
+.modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 100; align-items: center; justify-content: center; }
+.modal-content { background: #10080c; border: 2px solid #8b0000; border-radius: 16px; max-width: 680px; width: 92%; max-height: 90vh; overflow-y: auto; padding: 28px; }
+.modal h2 { font-family: 'Playfair Display', serif; color: #f0d878; margin-bottom: 12px; }
+.close { float: right; font-size: 2.2em; cursor: pointer; color: #f0d878; }
+.media { margin: 16px 0; }
+audio, video { width: 100%; border-radius: 8px; }
+.pdf-link { display: inline-block; margin-top: 10px; padding: 8px 16px; background: #8b0000; color: #fff; text-decoration: none; border-radius: 6px; }
+footer { text-align: center; padding: 40px; color: #6a5048; }
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="hero-overlay">
+    <h1>Rouvan BDSM-joulukalenteri</h1>
+    <p class="subtitle">Orjan nöyrä lahja Valtiattarelleen • Joulukuu 2026</p>
+    <div class="dedication">
+      Rouva,<br><br>
+      Tämä kalenteri on kirjoitettu Sinulle, minun Valtiattarelleni. Jokainen luukku on nöyrä orjasi lahja: antautumista, odotusta, kipua ja nautintoa Sinun ehdoillasi. Tällä kertaa sondit, tulpat, palvelu, alistaminen ja piiskaminen, sähköleikki ja siveysvyö ovat vahvemmin esillä – ne ovat orjan lempiasioita Sinun käsissäsi. Joissakin luukuissa on ehdotuksia musiikille (lisää omat Suno-kappaleesi) ja lyhyitä videoita.<br><br>
+      Olen valmis. Käskysi on laki.
+    </div>
+  </div>
+</div>
+<div class="calendar" id="calendar"></div>
+<footer>Rouvan orjalle • 2026</footer>
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2 id="modal-title"></h2>
+    <div id="modal-body"></div>
+  </div>
+</div>
+<script>
+const days = [
+  { day: 1, title: "1. Luukku – Polvistuminen", content: "Rouva odottaa. Polvistu hänen eteensä. Tänään alkaa antautuminen." },
+  { day: 2, title: "2. Luukku – Lateksi", content: "Rouva pukeutuu lateksiin. Orja ihailee ja palvelee." },
+  { day: 3, title: "3. Luukku – Shibari", content: "Rouva sitoo orjan. Köydet kiristyvät. Hengitä ja antaudu." },
+  { day: 4, title: "4. Luukku – Siveysvyö", content: "Rouva lukitsee siveysvyön penisputkella. Orjan nautinto on hänen hallussaan." },
+  { day: 5, title: "5. Luukku – Peräaukon harjoittelu", content: "Rouva aloittaa orjan peräaukon harjoittelun. Hitaasti, tarkasti." },
+  { day: 6, title: "6. Luukku – Jalkojen palvonta", content: "Orja palvoo Rouvan jalkoja. Suutelee, nuolee, kiittää." },
+  { day: 7, title: "7. Luukku – Nahka", content: "Rouva nahassa. Tuoksu, ääni, kontrolli." },
+  { day: 8, title: "8. Luukku – Sondaus", content: "Rouva harjoittelee orjaa sondalla. Hitaasti, syvemmälle." },
+  { day: 9, title: "9. Luukku – Pepun palvonta", content: "Orja palvoo Rouvan peppua. Hänen ilokseen." },
+  { day: 10, title: "10. Luukku – Hieronta", content: "Orja hieroo Rouvaa. Hänen nautintonsa on tärkeintä." },
+  { day: 11, title: "11. Luukku – Shampanja", content: "Rouva juo shampanjaa. Orja saa maistaa hänen tahtonsa mukaan." },
+  { day: 12, title: "12. Luukku – Siveys 2", content: "Penisputki pysyy. Rouva päättää milloin se avataan." },
+  { day: 13, title: "13. Luukku – Lateksi 2", content: "Orja pukeutuu lateksiin Rouvan käskystä." },
+  { day: 14, title: "14. Luukku – Peräaukon harjoittelu 2", content: "Syvempi harjoittelu. Orja avautuu Rouvalle." },
+  { day: 15, title: "15. Luukku – Sondaus 2", content: "Pidempi sonda. Orja kestää Rouvan iloksi." },
+  { day: 16, title: "16. Luukku – Nahka ja lateksi", content: "Rouva yhdistää nahkaa ja lateksia." },
+  { day: 17, title: "17. Luukku – Jalkojen palvonta 2", content: "Pitkä palvonta. Orja ei nouse ennen lupaa." },
+  { day: 18, title: "18. Luukku – Hieronta 2", content: "Orja hieroo Rouvan jalkoja ja peppua." },
+  { day: 19, title: "19. Luukku – Shibari 2", content: "Kauniimpi sidonta. Orja on koriste." },
+  { day: 20, title: "20. Luukku – Siveysvyö 2", content: "Tiukempi vyö. Orja muistaa kenelle hän kuuluu." },
+  { day: 21, title: "21. Luukku – Shampanja 2", content: "Rouva nauttii. Orja odottaa ja palvelee." },
+  { day: 22, title: "22. Luukku – Peräaukko", content: "Orja on harjoiteltu. Rouva käyttää häntä." },
+  { day: 23, title: "23. Luukku – Odotus", content: "Huomenna on jouluaatto. Orja odottaa Rouvan tahtoa." },
+  { day: 24, title: "24. Luukku – Antautuminen", content: "Jouluaatto. Orja antautuu kokonaan Rouvalle. Hän omistaa sinut." }
+];
+
+const calendar = document.getElementById('calendar');
+days.forEach(d => {
+  const door = document.createElement('div');
+  door.className = 'door';
+  door.textContent = d.day;
+  door.onclick = () => openDoor(d);
+  calendar.appendChild(door);
+});
+
+function openDoor(d) {
+  document.getElementById('modal-title').textContent = d.title;
+  let html = '<p>' + d.content + '</p><div class="media" id="media-' + d.day + '"></div>';
+  document.getElementById('modal-body').innerHTML = html;
+  document.getElementById('modal').style.display = 'flex';
+  loadMedia(d.day);
+}
+
+function loadMedia(day) {
+  const container = document.getElementById('media-' + day);
+  const base = 'luukku' + day;
+  // Try audio
+  const audio = new Audio(base + '.mp3');
+  audio.oncanplay = () => {
+    container.innerHTML += '<audio controls src="' + base + '.mp3"></audio>';
+  };
+  audio.onerror = () => {};
+  // Try video
+  const video = document.createElement('video');
+  video.src = base + '.mp4';
+  video.oncanplay = () => {
+    video.controls = true;
+    video.style.width = '100%';
+    container.appendChild(video);
+  };
+  video.onerror = () => {};
+  // Try PDF
+  fetch(base + '.pdf', { method: 'HEAD' }).then(r => {
+    if (r.ok) container.innerHTML += '<a class="pdf-link" href="' + base + '.pdf" target="_blank">Avaa PDF</a>';
+  }).catch(() => {});
+}
+
+function closeModal() { document.getElementById('modal').style.display = 'none'; }
+window.onclick = (e) => { if (e.target.id === 'modal') closeModal(); };
+</script>
+</body>
+</html>
