@@ -49,17 +49,17 @@ footer { text-align: center; padding: 40px; color: #6a5048; }
 </div>
 <script>
 const days = [
-  { day: 1, title: "1. Luukku – Polvistuminen ja lupaus", content: "Orjasi polvistuu eteesi ja toivottaa Rouvalle rauhallista joulukuun alkua. Tänään alkaa antautuminen. Orja lupaa sinulle koko tulevan vuoden: kaksi kertaa kuukaudessa jotain, mikä on vain sinun iloksesi. Sinä päätät milloin." },
-  { day: 2, title: "2. Luukku – Jalkojen palvonta (vuoden lupaus)", content: "Orja lupaa sinulle joka kuukausi yhden pitkän jalkojen palvonnan. Suudelmat, nuoleminen, kiitokset. Sinä päätät milloin se tapahtuu. Orja odottaa ja palvelee." },
-  { day: 3, title: "3. Luukku – Hieronta (vuoden lupaus)", content: "Toinen kuukausittainen lupaus: orja hieroo sinua kahdesti kuukaudessa. Jalat, peppu, selkä, kädet. Hänen nautintonsa on tärkeintä. Sinä kerrot milloin." },
+  { day: 1, title: "1. Luukku – Polvistuminen ja lupaus", content: "Orjasi polvistuu eteesi ja toivottaa Rouvalle rauhallista joulukuun alkua. Tänään alkaa antautuminen. Orja lupaa sinulle koko tulevan vuoden: kaksi kertaa kuukaudessa jotain, mikä on vain sinun iloksesi. tänään se on alistuminen luonasi harjoittaen kanssasi sondeja ja tulppia" },
+  { day: 2, title: "2. Luukku – Jalkojen palvonta (vuoden lupaus)", content: "Orja lupaa sinulle joka kuukausi yhden pitkän jalkojen palvonnan. Suudelmat, nuoleminen, kiitokset. Orja odottaa ja palvelee." },
+  { day: 3, title: "3. Luukku – Hieronta (vuoden lupaus)", content: "Toinen kuukausittainen lupaus: orja hieroo sinua kahdesti kuukaudessa. Jalat, peppu, selkä, kädet. Hänen nautintonsa on tärkeintä." },
   { day: 4, title: "4. Luukku – Lateksi", content: "Rouva pukeutuu lateksiin. Orja ihailee, hoitaa ja palvelee. Lateksi kiiltää sinun ihollasi. Orja on valmiina." },
-  { day: 5, title: "5. Luukku – Pepun palvonta", content: "Orja palvoo Rouvan peppua. Hitaasti, tarkasti, sinun iloksesi. Tämäkin voi olla yksi kuukausittainen nautinto, jos niin päätät." },
+  { day: 5, title: "5. Luukku – Pepun palvonta", content: "Orja palvoo Rouvan peppua. Hitaasti, tarkasti, sinun iloksesi. Tämäkin voi olla yksi kuukausittainen nautinto." },
   { day: 6, title: "6. Luukku – Shibari", content: "Rouva sitoo orjan. Köydet kiristyvät. Orja hengittää ja antautuu. Sidonta on sinun koristeesi." },
   { day: 7, title: "7. Luukku – Siveysvyö", content: "Rouva lukitsee siveysvyön. Orjan nautinto on sinun hallussasi. Hän muistaa kenelle hän kuuluu." },
   { day: 8, title: "8. Luukku – Shampanja ja palvelu", content: "Rouva juo shampanjaa. Orja tarjoilee, odottaa ja maistaa vain jos sinä sallit. Palvelu on sinun." },
   { day: 9, title: "9. Luukku – Nahka", content: "Rouva nahassa. Tuoksu, ääni, kontrolli. Orja ihailee ja tottelee." },
   { day: 10, title: "10. Luukku – Peräaukon harjoittelu", content: "Rouva harjoittaa orjaa. Hitaasti, syvemmin, sinun tahtosi mukaan. Orja avautuu sinulle." },
-  { day: 11, title: "11. Luukku – Kuukausittainen jalkapalvonta (muistutus)", content: "Muista lupaus: orja on valmis jalkojesi eteen joka kuukausi. Kerro päivä. Orja polvistuu." },
+  { day: 11, title: "11. Luukku – Kuukausittainen jalkapalvonta (muistutus)", content: "Muista lupaus: orja on valmis jalkojesi eteen joka kuukausi. Orja polvistuu." },
   { day: 12, title: "12. Luukku – Kuukausittainen hieronta (muistutus)", content: "Toinen lupaus odottaa. Orja hieroo sinua kahdesti kuukaudessa. Sinä päätät milloin ja kuinka pitkään." },
   { day: 13, title: "13. Luukku – Lateksi 2", content: "Orja pukeutuu lateksiin sinun käskystäsi. Hän on sinun leikkikalusi lateksissa." },
   { day: 14, title: "14. Luukku – Sondaus", content: "Rouva harjoittaa orjaa sondalla. Hitaasti, tarkasti, syvemmin. Orja kestää sinun iloksesi." },
@@ -67,12 +67,12 @@ const days = [
   { day: 16, title: "16. Luukku – Nahka ja lateksi", content: "Rouva yhdistää nahkaa ja lateksia. Orja ihailee molempia ja palvelee molemmissa." },
   { day: 17, title: "17. Luukku – Hieronta 2", content: "Orja hieroo Rouvan jalkoja ja peppua. Öljy, kädet, kärsivällisyys. Sinun nautintosi." },
   { day: 18, title: "18. Luukku – Shibari 2", content: "Kauniimpi sidonta. Orja on koristeesi. Köydet pitävät hänet paikallaan sinun katsottavaksesi." },
-  { day: 19, title: "19. Luukku – Siveysvyö 2", content: "Tiukempi vyö. Orja muistaa koko vuoden, kenelle hän kuuluu. Sinä pidät avaimet." },
+  { day: 19, title: "19. Luukku – Siveysvyö 2", content: "Tiukempi vyö. Orja muistaa koko vuoden, kenelle hän kuuluu." },
   { day: 20, title: "20. Luukku – Shampanja 2", content: "Rouva nauttii. Orja odottaa polvillaan ja tarjoilee. Hän maistaa vain jos sinä annat." },
   { day: 21, title: "21. Luukku – Vuoden lupaus (yhteenveto)", content: "Orja toistaa lupauksensa: kaksi kertaa kuukaudessa jotain erityistä sinulle koko vuoden. Jalkapalvonta ja hieronta, tai mitä ikinä päätät. Sinä valitset." },
   { day: 22, title: "22. Luukku – Käyttö", content: "Orja on harjoiteltu. Rouva käyttää häntä. Peräaukko, suu, kädet – sinun tahtosi mukaan." },
   { day: 23, title: "23. Luukku – Odotus", content: "Huomenna on jouluaatto. Orja odottaa Rouvan tahtoa polvillaan. Vuoden lupaus on voimassa." },
-  { day: 24, title: "24. Luukku – Antautuminen", content: "Jouluaatto. Orja antautuu kokonaan Rouvalle. Hän omistaa sinut. Kaksi kertaa kuukaudessa koko vuoden – ja aina muulloinkin kun käsket. Orja on sinun." }
+  { day: 24, title: "24. Luukku – Antautuminen", content: "Jouluaatto. Orja antautuu kokonaan Rouvalle. Hän omistaa sinut. Kaksi kertaa kuukaudessa koko vuoden – ja aina muulloinkin kun se on mahdollista. Orja on sinun." }
 ]
 const calendar = document.getElementById('calendar');
 days.forEach(d => {
